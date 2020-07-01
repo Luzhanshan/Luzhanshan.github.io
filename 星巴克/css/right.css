@@ -135,6 +135,7 @@
     font-weight: 700;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.87);
+    padding-top: 40px;
 }
 .right_4_box .row div a p:nth-child(3){
     color: rgba(0, 0, 0, 0.56);
@@ -192,6 +193,9 @@
     line-height: 28px;
     text-align: center;
     cursor: pointer;
+}
+.right_5_prev img, .right_5_next img{
+    margin-top: -2px;
 }
 .right_5_prev{
     left: 24px;
