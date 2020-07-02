@@ -7,6 +7,9 @@
     .right_5_banner{
         margin-left: 144px;
     }
+    .right_3_right_box{
+        margin-top: 92px;
+    }
 }
 @media(max-width: 1200px){
     .right_1{
@@ -14,6 +17,9 @@
     }
     .right_5_banner{
         margin-left: 144px;
+    }
+    .right_3_right_box{
+        margin-top: 92px;
     }
 }
 @media(max-width: 768px){
@@ -34,7 +40,7 @@
         text-align: center;
     }
     .right_3_right_box{
-        margin-bottom: 80px;
+        margin: 40px 0;
     }
     .right_5_banner{
         margin-left: 0px;
@@ -85,9 +91,6 @@
 .right_3{
     margin: 0 0 16px 0;
 }
-.right_3_left_box{
-    /* padding-left: 140px; */
-}
 
 .right_3_left_box h2{
     font-size: 22px;
@@ -108,9 +111,7 @@
     border: 1px solid #00A862;
     color: #00A862 !important;
 }
-.right_3_right_box{
-    margin-top: 92px;
-}
+
 
 .right_4{
     background: #F7F7F7;
