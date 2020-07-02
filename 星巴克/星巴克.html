@@ -15,7 +15,7 @@
 <body>
     <div class="row" style="padding: 0; margin: 0;">
         <!-- 大屏幕  左边 -->
-        <div class="left col-lg-4 hidden-md hidden-sm hidden-xs" >
+        <div class="left col-lg-4 visible-lg" >
             <div class="row" style="width: 33%; position: fixed;">
                 <div class="left_top">
                     <div class="left_top_left col-lg-1">
@@ -57,7 +57,7 @@
             </div>
         </div>
         <!-- 中等屏幕 顶部-->
-        <div class="md_header col-md-12 hidden-lg col-sm-12 col-xs-12" style="z-index: 999;">
+        <div class="md_header col-md-12  col-sm-12 visible-md visible-sm" style="z-index: 999;">
             <div class="row" >
                 <div class="md_header_top">
                     <div class="md_header_logo col-md-1 col-sm-1 col-xs-1">
@@ -99,8 +99,15 @@
             </div>
         </div>
 
+        <!-- 小屏幕 顶部 -->
+        <div class=" xs-header col-xs-12 visible-xs">
+            <div class="xs_bottom_top" >
+                <span>心情惬意，来杯咖啡吧 ☕</span>
+            </div>
+        </div>
+
         <div class="right col-lg-8" style="padding: 0;margin: 0;">
-        <!-- 大屏幕  轮播图 -->
+        <!-- 轮播图 -->
             <div class="right_1">
                 <span class="guanggao">广告</span>
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -131,17 +138,17 @@
             </div>
             <div class="right_2">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                         <a href="javascript:;">
                             <img class="r2" src="img/right_2_01.jpg" alt="">
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md- col-sm-4">
                         <a href="javascript:;">
                             <img class="r2" src="img/right_2_02.jpg" alt="">
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                         <a href="javascript:;">
                             <img class="r2" src="img/right_2_03.jpg" alt="">
                         </a>
@@ -150,7 +157,7 @@
             </div>
             <div class="right_3">
                 <div class="row" style="padding: 0; margin: 0;">
-                    <div class="right_3_left col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right_3_left col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5  col-xs-12">
                         <div class="right_3_left_box">
                             <h2>星享俱乐部</h2>
                             <p class="pac">开启您的星享之旅，星星越多、会员等级越高、好礼越丰富。<a href="javascript:;">了解更多 ›</a></p>
@@ -160,7 +167,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="right_3_right col-lg-6 col-md-6  col-sm-12 col-xs-12">
+                    <div class="right_3_right col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5  col-sm-offset-1 col-sm-5 col-xs-12">
                         <div class="right_3_right_box">
                             <img src="img/right_3_right.svg" alt="">
                         </div>
@@ -172,7 +179,7 @@
                     <h2>星巴克精选</h2>
                     <p>在星巴克天猫旗舰店发现更多咖啡心意</p>
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                             <a href="javascript:;">
                                 <img src="img/right_4_01.png" alt="">
                                 <p>会员星礼包</p>
@@ -184,7 +191,7 @@
                                 <p>了解更多 ›</p>
                             </a>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                             <a href="javascript:;">
                                 <img src="img/right_4_02.png" alt="">
                                 <p>星礼卡</p>
@@ -196,7 +203,7 @@
                                 <p>了解更多 ›</p>
                             </a>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                             <a href="javascript:;">
                                 <img src="img/right_4_03.png" alt="">
                                 <p>电子产品券</p>
@@ -208,7 +215,7 @@
                                 <p>了解更多 ›</p>
                             </a>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                             <a href="javascript:;">
                                 <img src="img/right_4_04.png" alt="">
                                 <p>咖啡生活</p>
@@ -269,6 +276,58 @@
                     |
                 <a href="javascript:;">沪ICP备17003747号</a>
             </div>
+            <div class="right_7 visible-xs">
+				<div class="right_7_top"></div>
+				<div class="right_7_bottom">
+					<ul>
+						<li>
+							<a href="#" class="active">
+								<span>
+									<img src="img/icon-home.svg" alt="">
+									<img class="green" src="img/icon-home-active.svg" alt="">
+								</span>
+								<span class="title">主页</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>
+									<img src="img/icon-stores.svg" alt="">
+									<img class="green" src="img/icon-stores-active.svg" alt="">
+								</span>
+								<span class="title">门店</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>
+									<img src="img/icon-account.svg" alt="">
+									<img class="green" src="img/icon-account-active.svg" alt="">
+								</span>
+								<span class="title my">我的账户</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>
+									<img src="img/icon-menu.svg" alt="">
+									<img class="green" src="img/icon-menu-active.svg" alt="">
+								</span>
+								<span class="title">菜单</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>
+									<img src="img/icon-more.svg" alt="">
+									<img class="green" src="img/icon-more-active.svg" alt="">
+								</span>
+								<span class="title">更多</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
         </div>
     </div>
     <script src="js/index.js"></script>
