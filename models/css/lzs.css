@@ -364,6 +364,7 @@ a {
     background: url(../images/bg2.jpg) no-repeat top;
     background-size: cover;
     padding: 48px 0;
+    min-height: 600px;
 }
 .main_6 .main_6_box{
     padding: 48px 15px;
