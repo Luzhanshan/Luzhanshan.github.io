@@ -6,6 +6,9 @@ body {
     background: #FFF;
     font-family: 'Poppins', sans-serif;
 }
+html {
+    scroll-behavior: smooth;
+}
 ul {
     padding: 0;
     margin: 0;
