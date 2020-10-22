@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .time-box {
+            margin: 120px auto;
+            width: 504px;
+            height: 504px;
+            /* background-color: #ccc; */
+        }
+
+        .time-box ul {
+            width: 500px;
+            height: 500px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .time-box ul .line {
+            width: 4px;
+            height: 500px;
+            background-color: #333;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left: -2px;
+        }
+
+        .time-box ul .line:nth-child(1) {
+            transform: rotateZ(30deg);
+        }
+
+        .time-box ul .line:nth-child(2) {
+            transform: rotateZ(60deg);
+        }
+
+        .time-box ul .line:nth-child(3) {
+            transform: rotateZ(90deg);
+        }
+
+        .time-box ul .line:nth-child(4) {
+            transform: rotateZ(120deg);
+        }
+
+        .time-box ul .line:nth-child(5) {
+            transform: rotateZ(150deg);
+        }
+
+        .time-box ul .line:nth-child(6) {
+            transform: rotateZ(180deg);
+        }
+
+        .time-box ul .circle {
+            width: 450px;
+            height: 450px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -225px;
+            margin-top: -225px;
+            z-index: 3;
+        }
+
+        /* 时针 */
+        .time-box ul .hour {
+            width: 10px;
+            height: 120px;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            margin-left: -5px;
+            z-index: 4;
+            top: 50%;
+            margin-top: -120px;
+
+            /* 测试 */
+            /* transform: rotate(0deg); */
+            /* 设置转换位置 */
+            transform-origin: bottom;
+            /* 2.0 使用动画 */
+            /* 2.0.1 动画的名字 */
+            animation-name: clockAnimation;
+            /* 2.0.2 动画持续的时间 */
+            animation-duration: 43200s;
+            /* 2.0.3 无限次执行动画 */
+            animation-iteration-count: infinite;
+            /* 2.0.4 动画的速度 */
+            animation-timing-function: linear;
+        }
+
+        /* 分针 */
+        .time-box ul .min {
+            width: 6px;
+            height: 150px;
+            background-color: blue;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            z-index: 4;
+            top: 50%;
+            margin-top: -150px;
+            /* 测试 */
+            /* transform: rotate(0deg); */
+            /* 设置转换位置 */
+            transform-origin: bottom;
+            /* 2.0 使用动画 */
+            /* 2.0.1 动画的名字 */
+            animation-name: clockAnimation;
+            /* 2.0.2 动画持续的时间 */
+            animation-duration: 3600s;
+            /* 2.0.3 无限次执行动画 */
+            animation-iteration-count: infinite;
+            /* 2.0.4 动画的速度 */
+            animation-timing-function: linear;
+        }
+
+        /* 秒针 */
+        .time-box ul .sec {
+            width: 2px;
+            height: 180px;
+            background-color: red;
+            position: absolute;
+            left: 50%;
+            margin-left: -1px;
+            z-index: 4;
+            top: 50%;
+            margin-top: -180px;
+            /* 测试 */
+            /* transform: rotate(0deg); */
+            /* 设置转换位置 */
+            transform-origin: bottom;
+            /* 2.0 使用动画 */
+            /* 2.0.1 动画的名字 */
+            animation-name: clockAnimation;
+            /* 2.0.2 动画持续的时间 */
+            animation-duration: 60s;
+            /* 2.0.3 无限次执行动画 */
+            animation-iteration-count: infinite;
+            /* 2.0.4 动画的速度 */
+            animation-timing-function: steps(60);
+        }
+
+        .time-box ul .cover {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -20px;
+            margin-top: -20px;
+            z-index: 5;
+        }
+
+        /* 步骤： */
+        /* 1.0 定义动画 */
+        /* @keyframes clockAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        } */
+        .date{
+            top: 305px;
+            left: 250px;
+            position: absolute;
+        }
+
+        .date > div {
+			width: 200px;
+			height: 40px;
+			line-height: 40px;
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+		.date span.active {
+			margin: 0 5px;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="time-box">
+        <ul>
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="line"></li>
+            <li class="hour"></li>
+            <li class="min"></li>
+            <li class="sec"></li>
+            <li class="circle"></li>
+            <li class="cover"></li>
+        </ul>
+        <div class="date">
+            <div><span>00</span><span>00</span><span>00</span></div>
+
+            <div><span>1900</span><span>1</span><span>1</span></div>
+
+            <div><span>星期一</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- 时分秒，他们转一圈分别花多久时间? -->
+<!-- 秒针走一圈 才是一分钟，秒针走60s -->
+<!-- 分针走一圈，才是一小时，分针走60次60s  3600s-->
+<!-- 时针走一圈，是12小时，需要走12次3600s  43200‬s-->
+<!-- 
+    秒针   走一圈       花60s
+    分钟   走一圈       花60s * 60 = 3600s
+    小时   走一圈       花3600s * 12 =  43200‬s
+ -->
+<script>
+    // 步骤：
+    // 1.0 获取时分秒
+    var hour_element = document.querySelector(".hour");
+    var min_element = document.querySelector(".min");
+    var sec_element = document.querySelector(".sec");
+    var date = document.getElementsByClassName('date')[0];
+
+
+    // 2.0 定时器
+    var tiemr = setInterval(timeFunc, 1000)
+    // 3.0 定义处理时间的函数
+    function timeFunc() {
+        // 2.0.0 日期对象的实例
+        var currentTime = new Date();
+        // 2.0.1 
+        var h = currentTime.getHours(); //获取当前的小时
+        var m = currentTime.getMinutes(); //获取当前的分钟
+        var s = currentTime.getSeconds(); //获取当前的秒钟
+        var ms = currentTime.getMilliseconds(); //获取当前的毫秒
+
+        var yy = currentTime.getFullYear();
+			var mm = currentTime.getMonth()+1;// 0 
+            var dd = currentTime.getDate();
+            
+            var num = currentTime.getDay();//星期
+			var week = ['天','一','二','三','四','五','六'];
+			console.log(yy,mm,dd,week[num]);
+			// 字符串拼接
+			var html = "<div><span>"+currentTime.getHours()+"</span>:<span>"+currentTime.getMinutes()+"</span>:<span>"+currentTime.getSeconds()+"</span></div>";
+			html+="<div><span>"+yy+"</span>/<span>"+mm+"</span>/<span>"+dd+"</span></div>";
+			html+="<div><span>星期"+week[num]+"</span></div>";
+
+			// 渲染字符串
+			date.innerHTML = html;
+
+        // 计算小时的角度（偏准确的小时）
+        h = h + m / 60;
+        // 设置小时标签的角度
+        hour_element.style.transform = "rotate(" + (h * 30) + "deg)";
+
+        // 计算分钟的角度 （偏准确的分钟）
+        // 360 / 12 = 30    30 / 5 = 6
+        m = m + s / 60;
+        // 设置分钟标签的角度
+        min_element.style.transform = "rotate(" + (m * 6) + "deg)";
+
+        // 计算秒钟的角度 （偏准确的秒钟）
+        s = s + ms / 1000;
+        // 秒针 每次可以是6° 
+        // 0 ~ 59
+        // 60次 * 6 = 360 ° 
+        // 设置秒针标签的角度
+        sec_element.style.transform = "rotate(" + (s * 6) + "deg)";
+    }
+    // 4.0 初始化
+    timeFunc();
+</script>

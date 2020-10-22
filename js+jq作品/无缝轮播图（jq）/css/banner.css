@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul , ol {
+    list-style: none;
+}
+img {
+    display: block;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+.container .banner { /*420*/
+    width: 100%;
+    overflow: hidden;
+}
+.container .banner ul {/*4200*/
+    width: 1000%;
+}
+.container .banner ul::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}
+.container .banner ul li {/*420*/
+    width: 10%;
+    float: left;
+}
+.container .banner ul li a {/*420*/
+    display: block;
+    width: 100%;
+}
+.container .banner ul li a img {/*420*/
+    width: 100%;
+}
+
+.container .propagation {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    /* background-color: pink; */
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+.container .propagation ol {
+    width: 100%;
+    text-align: center;
+    font-size: 0;
+}
+.container .propagation ol li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.container .propagation ol li.active {
+    background-color: red;
+}
+
+.container .btn-prev,
+.container .btn-next {
+    width: 40px;
+    height: 60px;
+    /* background-color: #ccc; */
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    text-align: center;
+    line-height: 60px;
+}
+.container .btn-prev {
+    left: 0;
+}
+.container .btn-next {
+    right: 0;
+}
+.container .btn-prev span ,
+.container .btn-next span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: #fff;
+    transform: rotate(45deg);
+    vertical-align: middle;
+}
+.container .btn-prev:hover span ,
+.container .btn-next:hover span {
+    background-color: #ddd;
+}

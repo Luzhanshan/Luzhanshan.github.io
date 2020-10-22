@@ -1,0 +1,298 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  background: #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body .wrapper {
+  width: 500px;
+}
+body .wrapper audio {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  display: none;
+}
+body .wrapper .card {
+  width: 500px;
+  height: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+body .wrapper .card .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url("https://p2.music.126.net/yWtj0UXRJBCT9YI7csmAcw==/109951164190741294.jpg");
+  -moz-background-size: cover;
+       background-size: cover;
+  background-position: center;
+  -webkit-filter: blur(10px) brightness(0.8) contrast(1.2);
+          filter: blur(10px) brightness(0.8) contrast(1.2);
+  -webkit-transform: scale(2);
+     -moz-transform: scale(2);
+      -ms-transform: scale(2);
+       -o-transform: scale(2);
+          transform: scale(2);
+}
+body .wrapper .card .card_left {
+  width: 140px;
+  height: 140px;
+  background: url(../img/cd.png);
+  -moz-background-size: 100% 100%;
+       background-size: 100% 100%;
+  margin: 20px;
+  position: relative;
+}
+body .wrapper .card .card_left img.touxiang {
+  padding: 20px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-animation: myrotate linear 3s infinite;
+     -moz-animation: myrotate linear 3s infinite;
+       -o-animation: myrotate linear 3s infinite;
+          animation: myrotate linear 3s infinite;
+  -webkit-animation-play-state: paused;
+     -moz-animation-play-state: paused;
+       -o-animation-play-state: paused;
+          animation-play-state: paused;
+}
+body .wrapper .card .card_left .tou {
+  position: absolute;
+  right: -22px;
+  top: 0;
+  width: 26px;
+  -webkit-transform: rotate(-12deg);
+     -moz-transform: rotate(-12deg);
+      -ms-transform: rotate(-12deg);
+       -o-transform: rotate(-12deg);
+          transform: rotate(-12deg);
+}
+body .wrapper .card .card_left .tou img {
+  width: 26px;
+}
+body .wrapper .card .card_right {
+  position: relative;
+  padding: 20px;
+}
+body .wrapper .card .card_right h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+body .wrapper .card .card_right .control {
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin: 10px 0;
+  color: white;
+  font-weight: 700;
+}
+body .wrapper .card .card_right .control .control__content {
+  overflow: hidden;
+  cursor: pointer;
+}
+body .wrapper .card .card_right .control .control__content .control__btns {
+  float: left;
+  overflow: hidden;
+}
+body .wrapper .card .card_right .control .control__content .control__btns i {
+  margin-right: 6px;
+}
+body .wrapper .card .card_right .control .control__content .Volume_control {
+  float: right;
+}
+body .wrapper .card .card_right .control .control__content .Volume_control .icon-volume {
+  float: left;
+}
+body .wrapper .card .card_right .control .control__content .Volume_control .progress {
+  float: left;
+  width: 100px;
+  margin: 8px 0 8px 4px;
+}
+body .wrapper .card .card_right .progress {
+  height: 8px;
+  background: #333;
+  position: relative;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  margin-top: 20px;
+}
+body .wrapper .card .card_right .progress input {
+  width: 100%;
+  height: 8px;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+}
+body .wrapper .card .card_right .progress .slider {
+  width: 0;
+  background: #0cb6d4;
+  height: 8px;
+  cursor: pointer;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+body .wrapper .card .card_right .progress .slider i {
+  width: 100%;
+  height: 100%;
+}
+body .wrapper .card .card_right .progress .slider i:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  background: white;
+  opacity: 1;
+  position: absolute;
+  top: -2px;
+  right: -6px;
+}
+body .wrapper .card .card_right .time {
+  color: white;
+  font-size: 12px;
+  margin-top: 8px;
+}
+body .wrapper .card .card_right .time span {
+  background: #333;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  padding: 0 4px;
+}
+body .wrapper .card .card_right .time .time-left {
+  float: left;
+}
+body .wrapper .card .card_right .time .time-right {
+  float: right;
+}
+body .wrapper .card .card_right {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+body .wrapper.playing .card img.touxiang {
+  -webkit-animation-play-state: running;
+     -moz-animation-play-state: running;
+       -o-animation-play-state: running;
+          animation-play-state: running;
+}
+body .wrapper.playing .card .tou {
+  -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+  right: -12px;
+}
+body .wrapper .list {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  color: white;
+  margin-top: 4px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+body .wrapper .list .active {
+  background: lightcyan;
+}
+@-webkit-keyframes myrotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-moz-keyframes myrotate {
+  from {
+    -moz-transform: rotate(0deg);
+         transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+         transform: rotate(360deg);
+  }
+}
+@-o-keyframes myrotate {
+  from {
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg);
+  }
+}
+@keyframes myrotate {
+  from {
+    -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=./style.css.map */

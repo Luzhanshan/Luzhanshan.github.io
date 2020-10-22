@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <link rel="stylesheet" href="css/banner.css">
+    <style>
+        .wrapper {
+            width: 900px;
+            margin: 80px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 插件内容 -->
+        <div class="container">
+            <!-- 图 -->
+            <div class="banner">
+                <ul>
+                    <!-- 动态创建 javascript:; 禁止链接标签发生添加 javascript:void(0)-->
+                    <!-- <li><a href="javascript:;"><img src="./images/1.jpg" alt=""></a></li> -->
+                </ul>
+            </div>
+            <!-- 点 -->
+            <div class="propagation">
+                <ol>
+                    <!-- 动态创建 -->
+                    <!-- <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li> -->
+                </ol>
+            </div>
+            <!-- 按钮 -->
+            <div class="btn-prev"><span class="icon"></span></div>
+            <div class="btn-next"><span class="icon"></span></div>
+        </div>
+    </div>
+
+    <script src="./jquery/jquery-3.4.1.js"></script>
+    <script src="./jquery/jquery.banner.js"></script>
+    <script>
+        $(function(){
+            // jquery 对象
+            $(".container").banner({
+               data:[
+                   {
+                       src:"./images/1.jpeg",
+                       url:"https://www.aaa.com/home"
+                   },
+                   {
+                       src:"./images/2.jpeg",
+                       url:"https://www.aaa.com/home"
+                   },
+                   {
+                       src:"./images/3.jpeg",
+                       url:"https://www.aaa.com/home"
+                   },
+                   {
+                       src:"./images/4.jpeg",
+                       url:"https://www.aaa.com/home"
+                   }
+               ]
+            })
+        })
+    </script>
+</body>
+</html>

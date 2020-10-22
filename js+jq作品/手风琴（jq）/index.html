@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery手风琴动画</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		body {
+			height: auto;
+			background-color: #1E1E1E;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		ul {
+			width: 1000px;
+		}
+
+		.wrap {
+			width: 790px;
+			height: 340px;
+			border: 1px solid #373737;
+			margin: 110px auto;
+		}
+
+		.wrap li {
+			float: left;
+			width: 158px;
+			height: 340px;
+		}
+
+		/* 王者荣耀手风琴 */
+		img {
+			display: block;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.king {
+			width: 732px;
+			margin: 0 auto;
+			background: url(images/bg.png) no-repeat;
+			overflow: hidden;
+			padding: 10px;
+		}
+
+		.king ul {
+			overflow: hidden;
+		}
+
+		.king li {
+			position: relative;
+			float: left;
+			width: 69px;
+			height: 69px;
+			margin-right: 10px;
+		}
+
+		.king li.current {
+			width: 224px;
+		}
+
+		.king li.current .big {
+			display: block;
+		}
+
+		.king li.current .small {
+			display: none;
+		}
+
+		.big {
+			width: 224px;
+			display: none;
+		}
+
+		.small {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 69px;
+			height: 69px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<!-- 王者荣耀 -->
+	<div class="king">
+		<ul>
+			<li class="current">
+				<a href="#">
+					<img src="images/m1.jpg" class="small">
+					<img src="images/m.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/l1.jpg" class="small">
+					<img src="images/l.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/c1.jpg" class="small">
+					<img src="images/c.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/w1.jpg" class="small">
+					<img src="images/w.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/z1.jpg" class="small">
+					<img src="images/z.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/h1.jpg" class="small">
+					<img src="images/h.png" class="big">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/t1.jpg" class="small">
+					<img src="images/t.png" class="big">
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<script src="./js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var lis = $('.wrap li');
+			for (var i = 0; i < lis.length; i++) {
+				lis.eq(i).css('backgroundImage', 'url(images/' + (i + 1) + '.png)');
+			}
+			lis.mouseenter(function () {
+				$(this).stop().animate({ width: 790 }).siblings().stop().animate({ width: 0 })
+			}).mouseleave(function () {
+				lis.stop().animate({ width: 158 })
+			})
+		})
+
+		$(function () {
+			// 思路分析: 
+			// 1. 鼠标经过某个小li 有两步操作
+			$(".king ul li").mouseover(function () {
+				// 2. 当前小li 宽度变为 224px， 同时里面的小图片淡出，大图片淡入
+				$(this).stop().animate({ "width": 224 }).find(".small").stop().fadeOut().siblings(".big").stop().fadeIn();
+
+				// 3. 其余兄弟小li宽度变为69px， 小图片淡入， 大图片淡出
+				$(this).siblings("li").stop().animate({ "width": 69 }).find(".big").stop().fadeOut().siblings(".small").stop().fadeIn();
+			})
+		})
+
+	</script>
+</body>
+
+</html>

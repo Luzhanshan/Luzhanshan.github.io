@@ -1,0 +1,237 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+        width: 500px;
+
+        audio {
+            width: 100%;
+            height: 50px;
+            border: none;
+            outline: none;
+            display: none;
+        }
+
+        .card {
+            width: 500px;
+            height: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+
+            .bg {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                background: url("https://p2.music.126.net/yWtj0UXRJBCT9YI7csmAcw==/109951164190741294.jpg");
+                background-size: cover;
+                background-position: center;
+                filter: blur(10px) brightness(0.8) contrast(1.2);
+                transform: scale(2);
+            }
+
+            .card_left {
+                width: 140px;
+                height: 140px;
+                background: url(../img/cd.png);
+                background-size: 100% 100%;
+                margin: 20px;
+                position: relative;
+
+                img.touxiang {
+                    padding: 20px;
+                    border-radius: 50%;
+                    animation: myrotate linear 3s infinite;
+                    animation-play-state: paused;
+                }
+
+                .tou {
+                    position: absolute;
+                    right: -22px;
+                    top: 0;
+                    width: 26px;
+                    transform: rotate(-12deg);
+
+                    img {
+                        width: 26px;
+                    }
+                }
+            }
+
+            .card_right {
+                position: relative;
+                padding: 20px;
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin: 10px 0;
+                }
+
+                .control {
+                    height: 24px;
+                    line-height: 24px;
+                    text-align: center;
+                    margin: 10px 0;
+                    color: white;
+                    font-weight: 700;
+
+                    .control__content {
+                        overflow: hidden;
+                        cursor: pointer;
+
+                        .control__btns {
+                            float: left;
+                            overflow: hidden;
+
+                            i {
+                                margin-right: 6px;
+                            }
+                        }
+
+                        .Volume_control{
+                            float: right;
+
+                            .icon-volume{
+                                float: left;
+                            }
+
+                            .progress{
+                                float: left;
+                                width: 100px;
+                                margin: 8px 0 8px 4px;
+                            }
+                        }
+                    }
+
+                }
+
+                .progress {
+                    height: 8px;
+                    background: #333;
+                    position: relative;
+                    border-radius: 4px;
+                    margin-top: 20px;
+
+                    input {
+                        width: 100%;
+                        height: 8px;
+                        opacity: 0;
+                        z-index: 1;
+                        position: absolute;
+                        top: 0px;
+                    }
+
+                    .slider {
+                        width: 0;
+                        background: #0cb6d4;
+                        height: 8px;
+                        cursor: pointer;
+                        z-index: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-radius: 4px;
+
+                        i {
+                            width: 100%;
+                            height: 100%;
+
+                            &:after {
+                                content: "";
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                background: white;
+                                opacity: 1;
+                                position: absolute;
+                                top: -2px;
+                                right: -6px;
+                            }
+                        }
+
+                    }
+
+                }
+
+                .time {
+                    color: white;
+                    font-size: 12px;
+                    margin-top: 8px;
+
+                    span {
+                        background: #333;
+                        border-radius: 10px;
+                        padding: 0 4px;
+                    }
+
+                    .time-left {
+                        float: left;
+                    }
+
+                    .time-right {
+                        float: right;
+                    }
+                }
+            }
+
+            .card_right {
+                flex: 1;
+            }
+        }
+
+        &.playing {
+            .card {
+                img.touxiang {
+                    animation-play-state: running;
+                }
+
+                .tou {
+                    transform: rotate(0deg);
+                    right: -12px;
+                }
+            }
+        }
+
+        .list {
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0);
+            color: white;
+            margin-top: 4px;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+
+            .active {
+                background: lightcyan;
+            }
+        }
+    }
+
+}
+
+@keyframes myrotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

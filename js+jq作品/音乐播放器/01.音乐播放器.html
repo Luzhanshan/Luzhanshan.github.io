@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.min.css">
+    <link rel="stylesheet" href="less/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <audio id="music" autoplay controls src="https://music.163.com/song/media/outer/url?id=169185.mp3"></audio>
+        <div class="card">
+            <div class="bg"></div>
+            <div class="card_left">
+                <img class="touxiang" src="https://p2.music.126.net/yWtj0UXRJBCT9YI7csmAcw==/109951164190741294.jpg"
+                    alt="">
+                <div class="tou">
+                    <img src="img/cd_tou.png" alt="">
+                </div>
+            </div>
+
+            <div class="card_right">
+                <h3>认真的雪</h3>
+                <h5>薛之谦</h5>
+                <div class="control">
+                    <div class="control__content">
+                        <div class="control__btns">
+                            <i class="iconfont icon-prev"></i>
+                            <i class="iconfont icon-play"></i>
+                            <i class="iconfont icon-next"></i>
+                            <i class="iconfont icon-loop"></i>
+                        </div>
+                        <!--<div class="Volume_control">
+                            <i class="iconfont icon-volume"></i>
+                            <div class="progress"></div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="progress">
+                    <input type="range" min="0" max="100" name="" id="">
+                    <div class="slider"><i></i></div>
+                </div>
+                <div class="time">
+                    <span class="time-left" id="timeLeft">00:00</span>
+                    <span class="time-right" id="timeRight">00:00</span>
+                </div>
+            </div>
+        </div>
+
+        <ul class="list">
+
+        </ul>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

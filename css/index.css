@@ -1,0 +1,37 @@
+.top-left-box{
+    line-height: 80px;
+}
+
+.vue-box{
+    width: 180px;
+}
+
+.vue-box img{
+    width: 180px;
+}
+
+.caption span{
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+.caption p{
+    text-align: left;
+}
+
+.lead-m{
+    margin-bottom: 0;
+}
+
+.thumbnail a{
+    text-decoration: none;
+}
+
+.section{
+    padding-bottom: 0;
+}
+
+.footer{
+    padding-bottom: 50px;
+}

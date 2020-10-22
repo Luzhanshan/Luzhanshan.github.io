@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body{
+                background-color: #fbfbfb;
+            }
+            .stage {
+                overflow: hidden;
+            }
+            .original {
+                width: 300px;
+                height: 300px;
+                /* border: 1px solid red; */
+                position: relative;
+                float: left;
+            }
+            .original img {
+                width: 100%;
+            }
+            .original .mask {
+                /* width: 150px;
+                height: 150px; */
+                background: rgba(255, 255, 255, 0.5);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                /* pointer-events: none; */
+                /* 设置元素穿透 */
+                /* display: none; */
+            }
+            .zoom {
+                width: 440px;
+                height: 440px;
+                border: 1px solid red;
+                float: left;
+                margin-left: 10px;
+                /* background: url("./img/0005.png"); */
+                /* background-size: 200% auto; */
+                /* background-repeat: no-repeat; */
+                /* display: none; */
+                overflow: hidden;
+            }
+            .zoom img {
+                width: 200%;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+
+            .slider {
+                width: 60px;
+                height: 60px;
+                background: red;
+                float: left;
+                margin-right: 20px;
+            }
+            .slider img {
+                width: 100%;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stage">
+            <div class="slider">
+                <img src="./img/0001.png" alt="" />
+                <img src="./img/0002.png" alt="" />
+                <img src="./img/0003.png" alt="" />
+                <img src="./img/0004.png" alt="" />
+                <img src="./img/0005.png" alt="" />
+            </div>
+            <div class="original">
+                <img src="./img/0005.png" alt="" />
+                <div class="mask"></div>
+            </div>
+            <div class="zoom">
+                <img src="./img/0005.png" alt="" />
+            </div>
+        </div>
+
+        <hr />
+        <!-- <select name="" id="level" style="margin-bottom: 20px;">
+            <option value="2">X2</option>
+            <option value="3">X3</option>
+            <option value="4">X4</option>
+            <option value="5">X5</option>
+        </select> -->
+        <span>放大倍数：</span>
+        <button>X2</button>
+        <button>X3</button>
+        <button>X4</button>
+        <button>X5</button>
+
+        <script>
+            // 默认2倍大小
+            var level = 3;
+            var originalW = 300;
+            var originalH = 300;
+
+            
+
+            // var select = document.getElementById('level')
+            var btns = document.getElementsByTagName("button");
+
+            var slider = document.getElementsByClassName("slider")[0];
+            var imgs = slider.getElementsByTagName("img");
+
+            var stage = document.getElementsByClassName("stage")[0];
+            var original = stage.getElementsByClassName("original")[0];
+            var originalImg = original.getElementsByTagName("img")[0];
+            var mask = original.getElementsByClassName("mask")[0];
+            var zoom = stage.getElementsByClassName("zoom")[0];
+            var zoomImg = zoom.getElementsByTagName("img")[0];
+
+            var zoomW = parseInt(window.getComputedStyle(zoom).width);
+            var zoomH = parseInt(window.getComputedStyle(zoom).height);
+
+            // 设置样式
+            original.style.width = originalW + "px";
+            original.style.height = originalH + "px";
+
+            original.onmouseover = function () {
+                mask.style.display = "block";
+                zoom.style.display = "block";
+            };
+            original.onmouseout = function () {
+                mask.style.display = "none";
+                zoom.style.display = "none";
+            };
+
+            var maskW = originalW / level;
+            var maskH = originalH / level;
+
+            mask.style.width = maskW + "px";
+            mask.style.height = maskH + "px";
+
+            zoomImg.style.width = level + "00%";
+
+            // 改变倍数
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].onclick = function () {
+                    console.log(this.innerText);
+                    level = Number(this.innerText.slice(1));
+                    console.log(level);
+
+                    maskW = originalW / level;
+                    maskH = originalH / level;
+
+                    mask.style.width = maskW + "px";
+                    mask.style.height = maskH + "px";
+
+                    zoomImg.style.width = level + "00%";
+                };
+            }
+
+            // 改变图片
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].onclick = function () {
+                    console.log(this.src);
+                    originalImg.src = this.src;
+                    zoomImg.src = this.src;
+                };
+            }
+
+            // 鼠标移动
+            original.onmousemove = function (event) {
+                // console.log(event.pageX, event.pageY);
+                // console.log(event.offsetX, event.offsetY);
+                // 相对元素（当前触发事件）的偏移 配合穿透
+
+                var x = event.pageX - original.offsetLeft;
+                var y = event.pageY - original.offsetTop;
+                console.log(x, y);
+                // 鼠标当前所在的位置 基于original的00点偏移
+
+                // 修正xy范围 不要让mask超出original  50-250
+
+                if (x <= maskW / 2) x = maskW / 2;
+                if (x >= originalW - maskW / 2) x = originalW - maskW / 2;
+                if (y <= maskH / 2) y = maskH / 2;
+                if (y >= originalH - maskH / 2) y = originalH - maskH / 2;
+
+                // 改变mask的定位点（-50是修正 鼠标在mask正中心）
+                mask.style.top = y - maskW / 2 + "px";
+                mask.style.left = x - maskH / 2 + "px";
+
+                zoomImg.style.left = -(x - maskW / 2) * (zoomW / maskW) + "px";
+                zoomImg.style.top = -(y - maskH / 2) * (zoomH / maskH) + "px";
+            };
+        </script>
+
+        <!-- 作业 -->
+        <!-- 放大镜完成 设置倍数 -->
+        <!-- 加上选择缩略图 选项卡 -->
+
+        <!-- 周末作业 复习总结 -->
+
+        <!-- 拓展 原地放大 http://www.jq22.com/yanshi17080 -->
+    </body>
+</html>

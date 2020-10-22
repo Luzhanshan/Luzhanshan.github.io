@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            height: 100vh;
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        #canvas {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+
+    <script>
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector("#canvas");
+        var context = canvas.getContext("2d");
+
+        // 头
+        context.beginPath();
+        context.fillStyle = "#a4ca39";
+        context.arc(250, 150, 80, (Math.PI / 180 * 0), (Math.PI / 180 * 180), true);
+        context.closePath();
+        context.fill()
+        // 眼睛
+        context.beginPath();
+        context.fillStyle = 'white';
+        context.arc(215, 108, 6, (Math.PI / 180 * 0), (Math.PI / 180 * 360), true);
+        context.fill()
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = 'white';
+        context.arc(285, 108, 6, (Math.PI / 180 * 0), (Math.PI / 180 * 360), true);
+        context.fill()
+        context.closePath();
+        // 耳朵
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 4;
+        context.lineCap = "round";
+        context.moveTo(200, 50);
+        context.lineTo(215, 80);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 4;
+        context.lineCap = "round";
+        context.moveTo(300, 50);
+        context.lineTo(285, 80);
+        context.stroke();
+        context.closePath();
+
+        // 身体
+        context.beginPath();
+        context.fillStyle = '#a4ca39';
+        context.fillRect(170, 156, 160, 120);
+        context.fill()
+        context.closePath();
+
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 40;
+        context.lineCap = "round";
+        context.moveTo(190, 276);
+        context.lineTo(310, 276);
+        context.stroke();
+        context.closePath();
+
+        // 手
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 30;
+        context.lineCap = "round";
+        context.moveTo(150, 170);
+        context.lineTo(150, 250);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 30;
+        context.lineCap = "round";
+        context.moveTo(350, 170);
+        context.lineTo(350, 250);
+        context.stroke();
+        context.closePath();
+
+        // 脚
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 30;
+        context.lineCap = "round";
+        context.moveTo(220, 290);
+        context.lineTo(220, 345);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.strokeStyle = "#a4ca39";
+        context.lineWidth = 30;
+        context.lineCap = "round";
+        context.moveTo(280, 290);
+        context.lineTo(280, 345);
+        context.stroke();
+        context.closePath();
+
+
+    </script>
+</body>
+
+</html>
