@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景视觉差</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: #fbfbfb;
+            height: 600px;
+        }
+        .wrapper {
+            padding-top: 260px;
+        }
+
+        .col-sm-4 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle .inner {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s;
+        }
+        .circle .inner .sky {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 4s linear;
+
+        }
+        .circle .inner .car {
+            position: absolute;
+            top: 0;
+            left: -435px;
+            transition: all 4s linear;
+        }
+
+        .circle .inner .floor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 4s linear;
+        }
+
+        .circle .shadow {
+            width: 200px;
+            box-shadow: 0px 31px 19px -2px #E0E8F9;
+            height: 20px;
+            border-radius: 70%;
+            position: relative;
+            top: -44px;
+            transition: all .3s;
+            z-index: -1;
+        }
+
+        .circle .inner:hover {
+            transform: scale(1.2);
+        }
+
+        .circle .inner:hover .sky {
+            left: -180px;
+        }
+
+        .circle .inner:hover .car {
+            left: 30px;
+        }
+
+        .circle .inner:hover .floor {
+            left: -180px;
+        }
+        .circle:hover .shadow{
+            top: 0;
+        }
+
+        .bus .inner .car {
+            z-index: 1;
+            left: -440px;
+            transition: all 4s linear;
+        }
+        .bus .inner:hover .sky {
+            left: -110px;
+        }
+        .bus .inner:hover .car {
+            left: -150px;
+        }
+        .bus .inner:hover .floor {
+            left: -110px;
+        }
+        .plane .inner .car{
+            z-index: 1;
+        }
+        .plane .inner .floor {
+            /* z-index: -1; */
+            left: -200px;
+            transition: all 4s linear;
+        }
+        .plane .inner:hover .sky {
+            left: -100px;
+        }
+        .plane .inner:hover .car {
+            left: -150px;
+        }
+        .plane .inner:hover .floor {
+            left: -300px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="circle train">
+                        <div class="inner">
+                            <div class="sky">
+                                <img src="img/pc1.png" alt="">
+                            </div>
+                            <div class="car">
+                                <img src="img/pc2.png" alt="">
+                            </div>
+                            <div class="floor">
+                                <img src="img/pc3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="circle bus">
+                        <div class="inner">
+                            <div class="sky">
+                                <img src="img/pc4.png" alt="">
+                            </div>
+                            <div class="car">
+                                <img src="img/pc6.png" alt="">
+                            </div>
+                            <div class="floor">
+                                <img src="img/pc5.png" alt="">
+                            </div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="circle plane">
+                        <div class="inner">
+                            <div class="sky">
+                                <img src="img/pc7.png" alt="">
+                            </div>
+                            <div class="car">
+                                <img src="img/pc9.png" alt="">
+                            </div>
+                            <div class="floor">
+                                <img src="img/pc8.png" alt="">
+                            </div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
